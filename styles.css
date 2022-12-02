@@ -1,18 +1,108 @@
-body{
-    background-color: #fffbf7;
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box; /*para que los elementos no se salgan del contenedor*/
 }
 
-h1{
-    color: #025157;
+nav{
+    background: #C6F4FF;
+    height: 100px;
+    width: 100%;
 }
 
-p{
-    color: #46484c;
+.enlace{
+    position: absolute;
+    padding: 5px 50px;
 }
 
-button{
-    background-color: #025157;
-    color: #fff;
-
+.logo{
+    height: 90px;
 }
 
+nav ul{
+    float: right;
+    margin: 20px;
+}
+
+nav ul li{
+    display: inline-block; 
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a{
+    font-family: 'Fredoka One', cursive;
+    color:white;
+    font-size: 18px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+li a.active, li a:hover{
+    background: #1AB5DB;
+    transition: 1s;
+}
+
+.checkbtn{  /*clase->con un punto*/
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none; /*para que se vea en dispositivos pequenios, como cel*/
+}
+
+#check{
+    display: none;
+}
+
+section{
+    background: url(classroom.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: calc(10vh - 100px);
+}
+
+@media (max-width: 952px){
+    .enlace{
+        padding-left: 20px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #C6F4FF;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px; /*espacio entre cada uno de los elementos*/
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    li a:hover, li a.active{
+        background: none;
+        color: #1AB5DB;
+    }
+}
+#check:checked ~ ul{
+    left: 0;
+}
